@@ -1,0 +1,88 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-project_newyork}
+      POSTGRES_USER: ${POSTGRES_USER:-project_newyork}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-project_newyork}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+
+  minio:
+    image: minio/minio:RELEASE.2025-02-28T09-55-16Z
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${AWS_ACCESS_KEY_ID:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
+    ports:
+      - "9002:9000"
+      - "9003:9001"
+    volumes:
+      - minio-data:/data
+
+  minio-init:
+    image: minio/mc:RELEASE.2025-03-12T17-29-24Z
+    depends_on:
+      - minio
+    entrypoint: ["/bin/sh", "/infra/create-minio-bucket.sh"]
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-minioadmin}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
+      AWS_STORAGE_BUCKET_NAME: ${AWS_STORAGE_BUCKET_NAME:-project-newyork-media}
+    volumes:
+      - ./infra:/infra:ro
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    depends_on:
+      - postgres
+      - redis
+      - minio
+      - minio-init
+    env_file:
+      - .env
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./apps/api:/app
+    command: ["sh", "/app/start-api.sh"]
+
+  worker:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    depends_on:
+      - api
+      - redis
+      - minio
+    env_file:
+      - .env
+    volumes:
+      - ./apps/api:/app
+    command: ["sh", "/app/start-worker.sh"]
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      target: dev
+    depends_on:
+      - api
+    env_file:
+      - .env
+    ports:
+      - "5174:5173"
+    volumes:
+      - ./apps/web:/app
+      - web-node-modules:/app/node_modules
+    command: ["sh", "-lc", "npm install && npm run dev"]
+
+volumes:
+  postgres-data:
+  minio-data:
+  web-node-modules:

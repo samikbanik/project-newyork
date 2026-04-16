@@ -1,0 +1,280 @@
+{
+  "$metadata": {
+    "name": "StreamVault Design System",
+    "version": "1.0.0",
+    "description": "Dark-first streaming platform tokens. Netflix-inspired horizontal browsing + YouTube-inspired grid layout. Feed into Style Dictionary or Tokens Studio.",
+    "updatedAt": "2026-04-16"
+  },
+
+  "color": {
+    "bg": {
+      "void":    { "value": "#0a0a0f", "description": "Absolute page background. Never put content on this; use base or surface." },
+      "base":    { "value": "#111118", "description": "Navbar, sidebars, persistent chrome." },
+      "surface": { "value": "#1a1a24", "description": "Cards, section backgrounds, modals." },
+      "elevated":{ "value": "#22222f", "description": "Inputs, code blocks, hover targets." },
+      "hover":   { "value": "#2a2a3a", "description": "Hover state for interactive surfaces." },
+      "glass":   { "value": "rgba(26,26,36,0.85)", "description": "Frosted navbar, tooltips. Requires backdrop-filter: blur(12px)." }
+    },
+    "border": {
+      "subtle":   { "value": "rgba(255,255,255,0.06)", "description": "Dividers, card outlines. Default border." },
+      "default":  { "value": "rgba(255,255,255,0.10)", "description": "Input borders, chip outlines." },
+      "emphasis": { "value": "rgba(255,255,255,0.20)", "description": "Focus states, hovered borders." }
+    },
+    "text": {
+      "primary":   { "value": "#f0f0f8", "description": "Headings, body copy, active labels." },
+      "secondary": { "value": "#9090a8", "description": "Metadata, subtitles, helper text." },
+      "muted":     { "value": "#555568", "description": "Placeholders, disabled, timestamps." },
+      "inverse":   { "value": "#0a0a0f", "description": "Text on light/white backgrounds." }
+    },
+    "accent": {
+      "default":   { "value": "#e8454a", "description": "Primary CTA, Play buttons, logo mark, progress fill." },
+      "hover":     { "value": "#f05055", "description": "Hover state for accent elements." },
+      "dim":       { "value": "rgba(232,69,74,0.15)", "description": "Accent background washes, upload zone hover." }
+    },
+    "highlight": {
+      "default":   { "value": "#3b82f6", "description": "Links, info states, watch progress bar." },
+      "hover":     { "value": "#60a5fa", "description": "Hover on links." },
+      "dim":       { "value": "rgba(59,130,246,0.15)", "description": "Info backgrounds, upcoming badge bg." }
+    },
+    "tag": {
+      "new":       { "value": "#10b981", "description": "New episodes / Recently added badge text." },
+      "newBg":     { "value": "rgba(16,185,129,0.12)", "description": "New badge background." },
+      "top":       { "value": "#f59e0b", "description": "Top 10 badge text." },
+      "topBg":     { "value": "rgba(245,158,11,0.12)", "description": "Top 10 badge background." },
+      "live":      { "value": "#e8454a", "description": "LIVE indicator text (same as accent)." },
+      "liveBg":    { "value": "rgba(232,69,74,0.15)", "description": "LIVE badge background." },
+      "season":    { "value": "#a78bfa", "description": "New Season badge text." },
+      "seasonBg":  { "value": "rgba(167,139,250,0.12)", "description": "New Season badge background." }
+    },
+    "status": {
+      "success":   { "value": "#10b981" },
+      "warning":   { "value": "#f59e0b" },
+      "error":     { "value": "#e8454a" },
+      "info":      { "value": "#3b82f6" }
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "sans":    { "value": "'DM Sans', system-ui, -apple-system, sans-serif", "description": "Primary UI font. All body copy, labels, buttons." },
+      "mono":    { "value": "'DM Mono', 'Fira Code', monospace", "description": "Timestamps, tokens, code, upload stats." }
+    },
+    "fontSize": {
+      "hero":    { "value": "48px", "description": "Full-screen hero title (billing page, splash)." },
+      "xl":      { "value": "28px", "description": "Section heroes, modal titles." },
+      "lg":      { "value": "22px", "description": "Page headings, section titles." },
+      "md":      { "value": "17px", "description": "Row headers (Trending now, Continue watching)." },
+      "base":    { "value": "15px", "description": "Body copy, video descriptions." },
+      "sm":      { "value": "13px", "description": "Metadata, genre tags, timestamps." },
+      "xs":      { "value": "11px", "description": "Uppercase labels, badges, captions." }
+    },
+    "fontWeight": {
+      "light":   { "value": 300, "description": "De-emphasised hero subtitles only." },
+      "regular": { "value": 400, "description": "Body copy, metadata." },
+      "medium":  { "value": 500, "description": "UI labels, badge text." },
+      "semibold":{ "value": 600, "description": "Headings, button labels, nav items." }
+    },
+    "lineHeight": {
+      "tight":   { "value": "1.15", "description": "Hero and large display text." },
+      "snug":    { "value": "1.35", "description": "Card titles (2-line clamp)." },
+      "normal":  { "value": "1.60", "description": "Body paragraphs." }
+    },
+    "letterSpacing": {
+      "tight":   { "value": "-0.5px", "description": "Large headings (xl, hero)." },
+      "snug":    { "value": "-0.3px", "description": "Section headings (lg, md)." },
+      "normal":  { "value": "0px", "description": "Body copy, buttons." },
+      "wide":    { "value": "0.5px", "description": "Uppercase badge text." },
+      "widest":  { "value": "1.2px", "description": "Section-label uppercase trackers." }
+    }
+  },
+
+  "spacing": {
+    "0":    { "value": "0px" },
+    "1":    { "value": "4px" },
+    "2":    { "value": "8px" },
+    "3":    { "value": "12px" },
+    "4":    { "value": "16px" },
+    "5":    { "value": "20px" },
+    "6":    { "value": "24px" },
+    "8":    { "value": "32px" },
+    "10":   { "value": "40px" },
+    "12":   { "value": "48px" },
+    "16":   { "value": "64px" },
+    "20":   { "value": "80px" },
+    "page": { "value": "24px", "description": "Horizontal page gutter (mobile: 16px)." }
+  },
+
+  "borderRadius": {
+    "none":   { "value": "0px" },
+    "xs":     { "value": "4px",    "description": "Badges, small chips, duration pills." },
+    "sm":     { "value": "6px",    "description": "Buttons, inputs, code blocks." },
+    "md":     { "value": "8px",    "description": "Video card thumbnails, smaller panels." },
+    "lg":     { "value": "12px",   "description": "Cards, hero sections, large panels." },
+    "xl":     { "value": "16px",   "description": "Modals, bottom sheets." },
+    "full":   { "value": "9999px", "description": "Chips, pills, avatars, live dot." }
+  },
+
+  "shadow": {
+    "card":  { "value": "0 4px 24px rgba(0,0,0,0.5)",  "description": "Resting elevation for cards." },
+    "hover": { "value": "0 8px 40px rgba(0,0,0,0.7)",  "description": "Lifted state on card hover." },
+    "focus": { "value": "0 0 0 2px rgba(59,130,246,0.5)", "description": "Keyboard focus ring (accent for primary, blue for others)." }
+  },
+
+  "animation": {
+    "duration": {
+      "fast":   { "value": "150ms" },
+      "base":   { "value": "220ms" },
+      "slow":   { "value": "350ms" }
+    },
+    "easing": {
+      "default":   { "value": "ease" },
+      "spring":    { "value": "cubic-bezier(0.34, 1.56, 0.64, 1)", "description": "Playful scale-up (badge pop, card hover)." },
+      "snappy":    { "value": "cubic-bezier(0.4, 0, 0.2, 1)", "description": "UI transitions (sidebar, modal)." }
+    }
+  },
+
+  "layout": {
+    "maxWidth": {
+      "content":  { "value": "1100px", "description": "Inner content area max width." },
+      "wide":     { "value": "1400px", "description": "Full-bleed catalogue grid." }
+    },
+    "grid": {
+      "catalogueColumns": { "value": "repeat(auto-fill, minmax(160px, 1fr))", "description": "YouTube-style video grid. Collapses to 2 columns on mobile." },
+      "thumbRowItemWidth": { "value": "140px", "description": "Portrait thumbnail width (Netflix rows). Height = 196px (aspect 5:7)." },
+      "thumbRowGap":       { "value": "8px" },
+      "cardGap":           { "value": "12px" }
+    }
+  },
+
+  "zIndex": {
+    "base":    { "value": 0 },
+    "raised":  { "value": 10, "description": "Cards on hover." },
+    "sticky":  { "value": 100, "description": "Sticky section headers." },
+    "navbar":  { "value": 200, "description": "Global navigation bar." },
+    "modal":   { "value": 300, "description": "Modals, drawers." },
+    "tooltip": { "value": 400, "description": "Tooltips, popovers." },
+    "player":  { "value": 500, "description": "Fullscreen video player overlay." }
+  },
+
+  "component": {
+    "navbar": {
+      "height":     { "value": "56px" },
+      "background": { "value": "{color.bg.glass}" },
+      "logoColor":  { "value": "{color.accent.default}" }
+    },
+    "videoCard": {
+      "borderRadius":   { "value": "{borderRadius.md}" },
+      "thumbAspectRatio":{ "value": "16/9", "description": "Landscape card (YouTube-style grid)." },
+      "hoverScale":     { "value": "1.02" },
+      "progressHeight": { "value": "3px" },
+      "progressColor":  { "value": "{color.accent.default}" },
+      "durationBg":     { "value": "rgba(0,0,0,0.8)" },
+      "durationRadius":  { "value": "{borderRadius.xs}" }
+    },
+    "thumbItem": {
+      "width":         { "value": "140px" },
+      "height":        { "value": "196px", "description": "Portrait artwork (5:7 ratio)." },
+      "borderRadius":  { "value": "{borderRadius.sm}" },
+      "hoverScale":    { "value": "1.04" }
+    },
+    "heroCard": {
+      "minHeight":   { "value": "280px" },
+      "borderRadius":{ "value": "{borderRadius.lg}" }
+    },
+    "button": {
+      "primary": {
+        "background":      { "value": "{color.accent.default}" },
+        "backgroundHover": { "value": "{color.accent.hover}" },
+        "color":           { "value": "#ffffff" },
+        "borderRadius":    { "value": "{borderRadius.sm}" },
+        "paddingX":        { "value": "20px" },
+        "paddingY":        { "value": "9px" },
+        "fontSize":        { "value": "{typography.fontSize.base}" },
+        "fontWeight":      { "value": "{typography.fontWeight.medium}" }
+      },
+      "secondary": {
+        "background":      { "value": "rgba(255,255,255,0.10)" },
+        "backgroundHover": { "value": "rgba(255,255,255,0.15)" },
+        "color":           { "value": "{color.text.primary}" },
+        "border":          { "value": "1px solid {color.border.default}" },
+        "borderRadius":    { "value": "{borderRadius.sm}" }
+      },
+      "ghost": {
+        "background":      { "value": "transparent" },
+        "backgroundHover": { "value": "{color.bg.elevated}" },
+        "color":           { "value": "{color.text.secondary}" },
+        "colorHover":      { "value": "{color.text.primary}" }
+      },
+      "icon": {
+        "size":        { "value": "36px" },
+        "background":  { "value": "{color.bg.elevated}" },
+        "borderRadius":{ "value": "{borderRadius.sm}" },
+        "border":      { "value": "1px solid {color.border.subtle}" }
+      }
+    },
+    "chip": {
+      "background":       { "value": "{color.bg.elevated}" },
+      "backgroundActive": { "value": "{color.text.primary}" },
+      "color":            { "value": "{color.text.secondary}" },
+      "colorActive":      { "value": "{color.text.inverse}" },
+      "border":           { "value": "1px solid {color.border.default}" },
+      "borderRadius":     { "value": "{borderRadius.full}" },
+      "paddingX":         { "value": "14px" },
+      "paddingY":         { "value": "6px" },
+      "fontSize":         { "value": "{typography.fontSize.sm}" }
+    },
+    "badge": {
+      "borderRadius":  { "value": "{borderRadius.full}" },
+      "paddingX":      { "value": "10px" },
+      "paddingY":      { "value": "3px" },
+      "fontSize":      { "value": "{typography.fontSize.xs}" },
+      "fontWeight":    { "value": "{typography.fontWeight.medium}" }
+    },
+    "input": {
+      "background":       { "value": "{color.bg.elevated}" },
+      "backgroundFocus":  { "value": "{color.bg.surface}" },
+      "border":           { "value": "1px solid {color.border.subtle}" },
+      "borderFocus":      { "value": "1px solid {color.border.emphasis}" },
+      "borderRadius":     { "value": "{borderRadius.sm}" },
+      "color":            { "value": "{color.text.primary}" },
+      "placeholderColor": { "value": "{color.text.muted}" },
+      "height":           { "value": "40px" },
+      "paddingX":         { "value": "14px" },
+      "fontSize":         { "value": "{typography.fontSize.base}" }
+    },
+    "skeleton": {
+      "background":       { "value": "{color.bg.elevated}" },
+      "animationDuration":{ "value": "1.5s" }
+    },
+    "uploadZone": {
+      "border":           { "value": "1.5px dashed {color.border.default}" },
+      "borderHover":      { "value": "1.5px dashed {color.accent.default}" },
+      "backgroundHover":  { "value": "{color.accent.dim}" },
+      "borderRadius":     { "value": "{borderRadius.md}" }
+    }
+  },
+
+  "rules": {
+    "_readme": "Implementation rules — read before coding any new component.",
+    "01_darkFirst":       "Dark mode is the only mode for v1. No light-mode variants needed.",
+    "02_noHardcoded":     "Never hardcode hex values in component CSS. Always reference a token from this file.",
+    "03_borderSubtle":    "Default card border: 1px solid color.border.subtle. Bump to .default on hover, .emphasis on focus.",
+    "04_fontStack":       "DM Sans for all UI text. DM Mono only for timestamps, durations, upload stats, tokens, code.",
+    "05_accentUsage":     "color.accent is ONLY for: Play buttons, progress bars, logo mark, upload progress. Not for links (use highlight).",
+    "06_highlightUsage":  "color.highlight is ONLY for: links, watch-later progress, info states, 'See all' anchors.",
+    "07_hoverScale":      "Video cards scale(1.02) on hover. Thumbnail portrait items scale(1.04). Nothing else scales.",
+    "08_transitionBase":  "All interactive elements use transition: 220ms ease. Fast actions (button press, badge pop): 150ms.",
+    "09_borderRadius":    "Badges = xs(4px). Buttons/inputs = sm(6px). Video thumbs = md(8px). Cards/panels = lg(12px). Chips/pills = full.",
+    "10_gridAspect":      "Landscape grid cards always 16:9. Portrait thumbnail rows always 5:7 (140×196px). Never break these ratios.",
+    "11_progressBar":     "Progress bars on video cards: 3px height, full-width at bottom of thumbnail, accent color fill.",
+    "12_overlayPlay":     "Play button overlay: rgba(0,0,0,0.4) bg on thumb hover, 44px white circle button centred.",
+    "13_navHeight":       "Navbar is always 56px tall, glass background, z-index 200.",
+    "14_pageGutter":      "Page horizontal gutter: 24px desktop, 16px mobile.",
+    "15_skeletonPulse":   "Skeletons use opacity animation 0.5→1→0.5 at 1.5s. Never use a shimmer gradient (breaks dark mode).",
+    "16_badgePosition":   "Badges on thumbnail cards: top-left for New/Season, top-right suppressed. Duration: bottom-right always.",
+    "17_emptyState":      "Empty states: centred icon (opacity 0.4) + 2-line text + optional CTA. Dashed border, bg-surface bg.",
+    "18_uploadProgress":  "Upload: show filename, percent (accent colour), progress bar (accent fill), and '~X min left'.",
+    "19_processSteps":    "Processing steps: green dot=done, accent pulsing dot=active, muted dot=pending. Pending rows at 40% opacity.",
+    "20_zLayering":       "Follow zIndex tokens exactly. Never use ad-hoc z-index values."
+  }
+}

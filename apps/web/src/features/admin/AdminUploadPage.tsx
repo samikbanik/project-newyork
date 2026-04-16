@@ -84,74 +84,98 @@ export function AdminUploadPage() {
 
   return (
     <section className="admin-layout">
-      <div>
-        <p className="eyebrow">Admin upload</p>
-        <h2>Trigger the Phase 1 ingest pipeline</h2>
-        <p>
-          This screen wires the frontend to the backend contract now, while keeping the flow
-          intentionally focused on one clean multipart upload path.
-        </p>
-      </div>
+      <div className="admin-layout__grid">
+        <div className="admin-panel admin-panel--intro">
+          <div>
+            <p className="eyebrow">Admin upload</p>
+            <h2>Trigger the Phase 1 ingest pipeline</h2>
+            <p>
+              This screen wires the frontend to the backend contract now, while keeping the flow
+              intentionally focused on one clean multipart upload path.
+            </p>
+          </div>
 
-      <form className="upload-form" onSubmit={handleSubmit}>
-        <label>
-          Title
-          <input onChange={(event) => setTitle(event.target.value)} required value={title} />
-        </label>
+          <div className="hero-chip-row">
+            <span className="chip chip--accent">Multipart upload</span>
+            <span className="chip">Queue processing</span>
+            <span className="chip chip--highlight">Signed delivery</span>
+          </div>
 
-        <label>
-          Description
-          <textarea
-            onChange={(event) => setDescription(event.target.value)}
-            rows={4}
-            value={description}
-          />
-        </label>
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <span className="hero-stat__label">Estimated parts</span>
+              <strong>{partCount}</strong>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat__label">Selected file</span>
+              <strong>{file ? `${Math.round(file.size / 1024 / 1024)} MB` : "No file"}</strong>
+            </div>
+          </div>
 
-        <div className="form-row">
-          <label>
-            Rating
-            <select onChange={(event) => setContentRating(event.target.value)} value={contentRating}>
-              <option value="G">G</option>
-              <option value="PG">PG</option>
-              <option value="PG-13">PG-13</option>
-              <option value="R">R</option>
-            </select>
-          </label>
-
-          <label>
-            Release year
-            <input
-              onChange={(event) => setReleaseYear(Number(event.target.value))}
-              type="number"
-              value={releaseYear}
-            />
-          </label>
+          {status ? <p className="upload-status">{status}</p> : null}
+          {error ? <p className="form-error">{error}</p> : null}
         </div>
 
-        <label>
-          Video file
-          <input
-            accept=".mp4,.mov,.mkv,.avi"
-            onChange={(event) => setFile(event.target.files?.[0] ?? null)}
-            required
-            type="file"
-          />
-        </label>
+        <form className="upload-form admin-panel" onSubmit={handleSubmit}>
+          <label>
+            <span className="field-label">Title</span>
+            <input onChange={(event) => setTitle(event.target.value)} required value={title} />
+          </label>
 
-        {file ? (
-          <p className="upload-hint">
-            Selected {file.name} ({Math.round(file.size / 1024 / 1024)} MB), estimated {partCount} parts.
-          </p>
-        ) : null}
+          <label>
+            <span className="field-label">Description</span>
+            <textarea
+              onChange={(event) => setDescription(event.target.value)}
+              rows={4}
+              value={description}
+            />
+          </label>
 
-        {status ? <p className="upload-status">{status}</p> : null}
-        {error ? <p className="form-error">{error}</p> : null}
+          <div className="form-row">
+            <label>
+              <span className="field-label">Rating</span>
+              <select onChange={(event) => setContentRating(event.target.value)} value={contentRating}>
+                <option value="G">G</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+                <option value="R">R</option>
+              </select>
+            </label>
 
-        <button className="primary-button" disabled={submitting || !file} type="submit">
-          {submitting ? "Submitting..." : "Start upload flow"}
-        </button>
-      </form>
+            <label>
+              <span className="field-label">Release year</span>
+              <input
+                onChange={(event) => setReleaseYear(Number(event.target.value))}
+                type="number"
+                value={releaseYear}
+              />
+            </label>
+          </div>
+
+          <label className="upload-dropzone">
+            <span className="field-label">Video file</span>
+            <span className="upload-dropzone__copy">
+              {file ? file.name : "Choose a source file to upload into object storage"}
+            </span>
+            <input
+              accept=".mp4,.mov,.mkv,.avi"
+              onChange={(event) => setFile(event.target.files?.[0] ?? null)}
+              required
+              type="file"
+            />
+          </label>
+
+          {file ? (
+            <p className="upload-hint">
+              Selected {file.name} ({Math.round(file.size / 1024 / 1024)} MB), estimated {partCount} parts.
+            </p>
+          ) : null}
+
+          <button className="primary-button" disabled={submitting || !file} type="submit">
+            {submitting ? "Submitting..." : "Start upload flow"}
+          </button>
+        </form>
+      </div>
     </section>
   );
 }

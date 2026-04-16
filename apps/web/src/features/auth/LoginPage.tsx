@@ -43,12 +43,33 @@ export function LoginPage() {
   return (
     <div className="auth-layout">
       <section className="auth-hero">
-        <p className="eyebrow">Small streaming platform</p>
-        <h1>From upload to playback in one clean Phase 1 slice.</h1>
-        <p>
-          This first release focuses on secure sign-in, a ready-only catalogue, and direct
-          HLS playback without the API serving video bytes.
-        </p>
+        <div className="auth-hero__content">
+          <p className="eyebrow">Small streaming platform</p>
+          <h1>From upload to playback in one clean Phase 1 slice.</h1>
+          <p>
+            This first release focuses on secure sign-in, a ready-only catalogue, and direct
+            HLS playback without the API serving video bytes.
+          </p>
+        </div>
+
+        <div className="hero-chip-row">
+          <span className="chip chip--accent">Dark-first system</span>
+          <span className="chip">Ready-only catalogue</span>
+          <span className="chip chip--highlight">Signed playback</span>
+        </div>
+
+        <div className="auth-feature-list">
+          <article className="feature-card">
+            <span className="feature-card__label">Security</span>
+            <strong>JWT sessions with refresh handling</strong>
+            <p>Stay signed in across refreshes without the app getting stuck on expired tokens.</p>
+          </article>
+          <article className="feature-card">
+            <span className="feature-card__label">Pipeline</span>
+            <strong>Admin upload to HLS playback</strong>
+            <p>Ingest, transcode, and stream through signed manifests and private media storage.</p>
+          </article>
+        </div>
       </section>
 
       <section className="auth-card">
@@ -72,7 +93,7 @@ export function LoginPage() {
         <form className="auth-form" onSubmit={handleSubmit}>
           {mode === "register" ? (
             <label>
-              Display name
+              <span className="field-label">Display name</span>
               <input
                 value={displayName}
                 onChange={(event) => setDisplayName(event.target.value)}
@@ -83,7 +104,7 @@ export function LoginPage() {
           ) : null}
 
           <label>
-            Email
+            <span className="field-label">Email</span>
             <input
               value={email}
               onChange={(event) => setEmail(event.target.value)}
@@ -94,7 +115,7 @@ export function LoginPage() {
           </label>
 
           <label>
-            Password
+            <span className="field-label">Password</span>
             <input
               value={password}
               onChange={(event) => setPassword(event.target.value)}

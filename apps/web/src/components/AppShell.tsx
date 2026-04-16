@@ -16,9 +16,14 @@ export function AppShell({ children }: { children: ReactNode }) {
   return (
     <div className="shell">
       <header className="topbar">
-        <div>
-          <p className="eyebrow">Phase 1 Streaming MVP</p>
-          <h1>Project Newyork</h1>
+        <div className="topbar__brand">
+          <div className="brand-mark" aria-hidden="true">
+            PN
+          </div>
+          <div>
+            <p className="eyebrow">StreamVault System</p>
+            <h1>Project Newyork</h1>
+          </div>
         </div>
         <nav className="topnav">
           <Link className={location.pathname.startsWith("/watch") ? "" : "active"} to="/browse">
@@ -29,6 +34,9 @@ export function AppShell({ children }: { children: ReactNode }) {
               Admin Upload
             </Link>
           ) : null}
+          <span className="status-badge status-badge--info">
+            {user?.role === "admin" ? "Admin access" : "Viewer access"}
+          </span>
           <button className="ghost-button" onClick={handleLogout} type="button">
             Log out
           </button>
